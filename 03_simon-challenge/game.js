@@ -5,6 +5,7 @@ var userClickedPattern = [];
 
 var gameStart = false;
 var level = 0;
+var highScore = 0;
 
 // GAME START
 var keyStart = $(document).keydown(function () {
@@ -39,6 +40,7 @@ function checkAnswer(currentLevel) {
 
     if (gamePattern[currentLevel] == userClickedPattern[currentLevel]) {
         console.log("yes");
+       
         if (gamePattern.length == userClickedPattern.length) {
             setTimeout(function () {
                 nextSequence();
@@ -64,6 +66,9 @@ function checkAnswer(currentLevel) {
 }
 
 function nextSequence() {
+
+    $("#scoreboard").text("High Score: " + level);
+    
     // Reset User pattern
     userClickedPattern = [];
 
@@ -76,11 +81,22 @@ function nextSequence() {
     gamePattern.push(randomChosenColour);
     console.log("Computer pattern: \n", gamePattern);
 
+    var i = 0;
+    const intervalId = setInterval(function() {
+        $("#"+gamePattern[i]).fadeOut(100).fadeIn(100);
+        playSound(gamePattern[i]);
+        i += 1;
+        if (i === gamePattern.length) {
+            clearInterval(intervalId);
+          }
+        }, 500);
+    /*
     // Flash the selected ramdon button
     flashButton(randomChosenColour);
 
     // Play random selectec button sound
     playSound(randomChosenColour);
+    */
 }
 
 function flashButton(color) {
@@ -104,8 +120,13 @@ function animatePress(currentColour) {
 }
 
 function startOver() {
+    if(level > highScore){ // Sets highscore
+        highScore = level -1;
+        $("#scoreboard").text("High Score: " + highScore);
+    }
     level = 0;
     gamePattern = [];
     gameStart = false;
     console.clear();
+
 }
