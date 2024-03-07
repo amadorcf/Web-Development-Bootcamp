@@ -1,5 +1,5 @@
 .gitignore
-Recursos\
+Recursos
 Web Development Bootcamp.code-workspace
-D:\CURSOS\Web Development Bootcamp\node_modules
-D:\CURSOS\Web Development Bootcamp\23.nodeJS-npm\solution.js
+node_modules
+/23.nodeJS-npm/solution.js
