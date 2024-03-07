@@ -1,3 +1,6 @@
+//const fs = require("fs");
+//import { writeFile } from 'node:fs';
+
 var buttonColours = ["red", "blue", "green", "yellow"];
 
 var gamePattern = [];
@@ -67,7 +70,7 @@ function checkAnswer(currentLevel) {
 
 function nextSequence() {
 
-    $("#scoreboard").text("High Score: " + level);
+    $("#scoreboard").text("High Score: " + highScore);
     
     // Reset User pattern
     userClickedPattern = [];
@@ -124,6 +127,12 @@ function startOver() {
         highScore = level -1;
         $("#scoreboard").text("High Score: " + highScore);
     }
+
+/*     writeFile("highscore.txt",highScore,(err) => {
+        if (err) throw err;
+        console.log('The file has been saved!');
+      });  */
+
     level = 0;
     gamePattern = [];
     gameStart = false;
