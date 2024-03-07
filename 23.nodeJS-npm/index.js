@@ -14,7 +14,7 @@ const questions = [
     {
       type: 'input',
       name: 'url',
-      message: "",
+      message: "What's your URL?",
     },
 
     ]
