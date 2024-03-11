@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Secrets</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
+</head>
+
+<body>
+  <h1 style="text-align: CENTER;">Secrets</h1><hr>
+  <form action="/check" method="POST">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+
+      <input style="margin-left:20px;" type="checkbox" id="show_password" />
+      &nbsp;&nbsp;Mostrar Contraseña
+      
+      <input style="margin-left:20px; background-color: lightblue;" type="submit" value="Submit" />
+  </form>
+
+  <script>
+    $(document).ready(function () {
+      $('#show_password').click(function () {
+        if ($('#show_password').is(':checked')) {
+          $('#password').attr('type', 'text');
+        } else {
+          $('#password').attr('type', 'password');
+        }
+      });
+    });
+  </script>
+
+  <!-- <form id="form1">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-6">
+          <h3>Bootstrap</h3>
+          <label>Password</label>
+          <div class="input-group">
+            <input ID="txtPassword" type="Password" Class="form-control">
+            <div class="input-group-append">
+              <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()" name="password" required> <span
+                  class="fa fa-eye-slash icon"></span> </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <h3>Chekbox</h3>
+          <label>Password</label>
+          <div class="input-group">
+            <input ID="Password" type="Password" Class="form-control" name="password" required>
+            <div class="input-group-append"> <span class="input-group-text">
+                <input ID="ShowPassword" type="checkbox" />
+              </span> </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </form> -->
+
+
+</body>
+
+</html>
