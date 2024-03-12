@@ -16,6 +16,8 @@ var password = "ILoveProgramming";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(express.static("public"))
+
 // Middleware created by yourself
 function checkPassword(req, res, next) {
     let pass = req.body.password;
