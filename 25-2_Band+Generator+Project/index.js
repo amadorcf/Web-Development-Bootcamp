@@ -10,9 +10,6 @@ const port = 3000;
 //Hint 3: Add the CSS link in header.ejs
 app.use(express.static("public"));
 
-//Step 4 - Add a dynamic year to the footer.
-//Hint: Google to find out how to get the current year using JS.
-
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
@@ -34,10 +31,10 @@ app.post("/submit", (req, res) => {
   }
 
   const randomAdj = adj[Math.floor(Math.random()*adj.length)];
-  const randomNoun = adj[Math.floor(Math.random()*adj.length)];
+  const randomNoun = noun[Math.floor(Math.random()*noun.length)];
   const bandName = capitalizeFirstLetter(randomAdj)+" "+capitalizeFirstLetter(randomNoun);
 
-  res.render("index.ejs",   {band: "<h1>"+bandName+"</h1>",} );
+  res.render("index.ejs", {band: "<h1>"+bandName+"</h1>"} );
   
 });
 
